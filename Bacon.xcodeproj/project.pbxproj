@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3BDD0990D377AACB5F859606 /* Pods_BaconTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486CD4CDE20654684D66BB08 /* Pods_BaconTests.framework */; };
+		84EEF21B1E6C0C4E001CA740 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84EEF21A1E6C0C4E001CA740 /* GoogleService-Info.plist */; };
 		A15CDD02EBF979A7185B569D /* Pods_BaconUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13A97B19A4ECC82C399BBD5D /* Pods_BaconUITests.framework */; };
 		BE2628AD1E6BFF4400E5CA25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2628AC1E6BFF4400E5CA25 /* AppDelegate.swift */; };
 		BE2628AF1E6BFF4400E5CA25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2628AE1E6BFF4400E5CA25 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		486CD4CDE20654684D66BB08 /* Pods_BaconTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaconTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58199B357BB53CCFD949D6F6 /* Pods-Bacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bacon/Pods-Bacon.debug.xcconfig"; sourceTree = "<group>"; };
 		596342A965FBB8D77BC87586 /* Pods-BaconUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaconUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaconUITests/Pods-BaconUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		84EEF21A1E6C0C4E001CA740 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE2628A91E6BFF4400E5CA25 /* Bacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2628AC1E6BFF4400E5CA25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE2628AE1E6BFF4400E5CA25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		BE2628AB1E6BFF4400E5CA25 /* Bacon */ = {
 			isa = PBXGroup;
 			children = (
+				84EEF21A1E6C0C4E001CA740 /* GoogleService-Info.plist */,
 				BE2628AC1E6BFF4400E5CA25 /* AppDelegate.swift */,
 				BE2628AE1E6BFF4400E5CA25 /* ViewController.swift */,
 				BE2628B01E6BFF4400E5CA25 /* Main.storyboard */,
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE2628B71E6BFF4400E5CA25 /* LaunchScreen.storyboard in Resources */,
+				84EEF21B1E6C0C4E001CA740 /* GoogleService-Info.plist in Resources */,
 				BE2628B41E6BFF4400E5CA25 /* Assets.xcassets in Resources */,
 				BE2628B21E6BFF4400E5CA25 /* Main.storyboard in Resources */,
 			);
@@ -707,6 +711,7 @@
 				BE2628D31E6BFF4400E5CA25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE2628D41E6BFF4400E5CA25 /* Build configuration list for PBXNativeTarget "BaconTests" */ = {
 			isa = XCConfigurationList;
@@ -715,6 +720,7 @@
 				BE2628D61E6BFF4400E5CA25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE2628D71E6BFF4400E5CA25 /* Build configuration list for PBXNativeTarget "BaconUITests" */ = {
 			isa = XCConfigurationList;
@@ -723,6 +729,7 @@
 				BE2628D91E6BFF4400E5CA25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
