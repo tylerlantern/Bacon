@@ -1,6 +1,6 @@
 //
-//  Login.swift
-//  Research_By_Max
+//  LoginView.swift
+//  Bacon
 //
 //  Created by Pantheb Tachajarrupan on 2/3/2560 BE.
 //  Copyright © 2560 Toyota Leasing Thailand. All rights reserved.
@@ -15,7 +15,7 @@ import TwitterCore
 import TwitterKit
 import GoogleSignIn
 
-class Login: UIViewController ,GIDSignInUIDelegate {
+class LoginView: UIViewController ,GIDSignInUIDelegate {
     
     
     @IBOutlet weak var txtEmail: UITextField!
@@ -25,28 +25,28 @@ class Login: UIViewController ,GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+//        GIDSignIn.sharedInstance().uiDelegate = self
+//        GIDSignIn.sharedInstance().signIn()
         
-        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
-            if (session != nil) {
-                let authToken = session?.authToken
-                let authTokenSecret = session?.authTokenSecret
-                
-                let credential = FIRTwitterAuthProvider.credential(withToken: authToken!, secret: authTokenSecret!)
-                FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-                    if error != nil {
-                        print("\(error)")
-                        return
-                    }
-                }
-            } else {
-                // ...
-            }
-        })
+//        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
+//            if (session != nil) {
+//                let authToken = session?.authToken
+//                let authTokenSecret = session?.authTokenSecret
+//                
+//                let credential = FIRTwitterAuthProvider.credential(withToken: authToken!, secret: authTokenSecret!)
+//                FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+//                    if error != nil {
+//                        print("\(error)")
+//                        return
+//                    }
+//                }
+//            } else {
+//                // ...
+//            }
+//        })
         
-        logInButton.center = self.view.center
-        self.view.addSubview(logInButton)
+//        logInButton.center = self.view.center
+//        self.view.addSubview(logInButton)
         
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
@@ -61,6 +61,11 @@ class Login: UIViewController ,GIDSignInUIDelegate {
         }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.setNavigationBarHidden(true, animated: true)
+    }
+    
     
     @IBAction func btnLogin_Click(_ sender: Any) {
         FIRAuth.auth()!.signIn(withEmail: txtEmail.text!,
@@ -158,16 +163,16 @@ class Login: UIViewController ,GIDSignInUIDelegate {
     
     
     
-    @IBAction func btnLogout_Click(_ sender: Any) {
-        
-        let firebaseAuth = FIRAuth.auth()
-        do {
-            try firebaseAuth?.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-        
-    }
+//    @IBAction func btnLogout_Click(_ sender: Any) {
+//        
+//        let firebaseAuth = FIRAuth.auth()
+//        do {
+//            try firebaseAuth?.signOut()
+//        } catch let signOutError as NSError {
+//            print ("Error signing out: %@", signOutError)
+//        }
+//        
+//    }
     
     //Google
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
@@ -209,7 +214,7 @@ class Login: UIViewController ,GIDSignInUIDelegate {
     
 }
 
-extension Login: UITextFieldDelegate {
+extension LoginView: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == txtEmail {

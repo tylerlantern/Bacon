@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		3BDD0990D377AACB5F859606 /* Pods_BaconTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486CD4CDE20654684D66BB08 /* Pods_BaconTests.framework */; };
 		84EEF21B1E6C0C4E001CA740 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84EEF21A1E6C0C4E001CA740 /* GoogleService-Info.plist */; };
-		84EEF21D1E6C0F5A001CA740 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEF21C1E6C0F5A001CA740 /* Login.swift */; };
-		84EEF21F1E6C0F61001CA740 /* SQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEF21E1E6C0F61001CA740 /* SQL.swift */; };
+		84EEF21D1E6C0F5A001CA740 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEF21C1E6C0F5A001CA740 /* LoginView.swift */; };
+		84EEF21F1E6C0F61001CA740 /* FireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEF21E1E6C0F61001CA740 /* FireBase.swift */; };
 		A15CDD02EBF979A7185B569D /* Pods_BaconUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13A97B19A4ECC82C399BBD5D /* Pods_BaconUITests.framework */; };
 		BE2628AD1E6BFF4400E5CA25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2628AC1E6BFF4400E5CA25 /* AppDelegate.swift */; };
-		BE2628AF1E6BFF4400E5CA25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2628AE1E6BFF4400E5CA25 /* ViewController.swift */; };
+		BE2628AF1E6BFF4400E5CA25 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2628AE1E6BFF4400E5CA25 /* LandingView.swift */; };
 		BE2628B21E6BFF4400E5CA25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2628B01E6BFF4400E5CA25 /* Main.storyboard */; };
 		BE2628B41E6BFF4400E5CA25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE2628B31E6BFF4400E5CA25 /* Assets.xcassets */; };
 		BE2628B71E6BFF4400E5CA25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2628B51E6BFF4400E5CA25 /* LaunchScreen.storyboard */; };
@@ -47,11 +47,11 @@
 		58199B357BB53CCFD949D6F6 /* Pods-Bacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bacon/Pods-Bacon.debug.xcconfig"; sourceTree = "<group>"; };
 		596342A965FBB8D77BC87586 /* Pods-BaconUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaconUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaconUITests/Pods-BaconUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		84EEF21A1E6C0C4E001CA740 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		84EEF21C1E6C0F5A001CA740 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		84EEF21E1E6C0F61001CA740 /* SQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQL.swift; sourceTree = "<group>"; };
+		84EEF21C1E6C0F5A001CA740 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		84EEF21E1E6C0F61001CA740 /* FireBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireBase.swift; sourceTree = "<group>"; };
 		BE2628A91E6BFF4400E5CA25 /* Bacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2628AC1E6BFF4400E5CA25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE2628AE1E6BFF4400E5CA25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE2628AE1E6BFF4400E5CA25 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		BE2628B11E6BFF4400E5CA25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE2628B31E6BFF4400E5CA25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE2628B61E6BFF4400E5CA25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -119,6 +119,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		84F01D8B1E6EE00500739AA1 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				84EEF21E1E6C0F61001CA740 /* FireBase.swift */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
 		BE2628A01E6BFF4400E5CA25 = {
 			isa = PBXGroup;
 			children = (
@@ -144,12 +152,12 @@
 		BE2628AB1E6BFF4400E5CA25 /* Bacon */ = {
 			isa = PBXGroup;
 			children = (
+				84F01D8B1E6EE00500739AA1 /* Class */,
 				BE2628DA1E6C240100E5CA25 /* Bacon.entitlements */,
-				84EEF21E1E6C0F61001CA740 /* SQL.swift */,
-				84EEF21C1E6C0F5A001CA740 /* Login.swift */,
+				84EEF21C1E6C0F5A001CA740 /* LoginView.swift */,
+				BE2628AE1E6BFF4400E5CA25 /* LandingView.swift */,
 				84EEF21A1E6C0C4E001CA740 /* GoogleService-Info.plist */,
 				BE2628AC1E6BFF4400E5CA25 /* AppDelegate.swift */,
-				BE2628AE1E6BFF4400E5CA25 /* ViewController.swift */,
 				BE2628B01E6BFF4400E5CA25 /* Main.storyboard */,
 				BE2628B31E6BFF4400E5CA25 /* Assets.xcassets */,
 				BE2628B51E6BFF4400E5CA25 /* LaunchScreen.storyboard */,
@@ -466,9 +474,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84EEF21F1E6C0F61001CA740 /* SQL.swift in Sources */,
-				84EEF21D1E6C0F5A001CA740 /* Login.swift in Sources */,
-				BE2628AF1E6BFF4400E5CA25 /* ViewController.swift in Sources */,
+				84EEF21F1E6C0F61001CA740 /* FireBase.swift in Sources */,
+				84EEF21D1E6C0F5A001CA740 /* LoginView.swift in Sources */,
+				BE2628AF1E6BFF4400E5CA25 /* LandingView.swift in Sources */,
 				BE2628AD1E6BFF4400E5CA25 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

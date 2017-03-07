@@ -26,10 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate{
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        Twitter.sharedInstance().start(withConsumerKey: "WvQOa8cOmL121GHN0WPt0OWQM", consumerSecret: "53IpMNt6KwrKKn6VaZAW4aecO4i3dsL3XRB52XaSjaMwnRZznz")
+//        Twitter.sharedInstance().start(withConsumerKey: "WvQOa8cOmL121GHN0WPt0OWQM", consumerSecret: "53IpMNt6KwrKKn6VaZAW4aecO4i3dsL3XRB52XaSjaMwnRZznz")
         
         FIRApp.configure()
-        //FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         //return true
     }
@@ -62,12 +61,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate{
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
-    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
-        -> Bool {
-            return GIDSignIn.sharedInstance().handle(url,
-                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                     annotation: [:])
-    }
+//    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+//        -> Bool {
+//            return GIDSignIn.sharedInstance().handle(url,
+//                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+//                                                     annotation: [:])
+//    }
     
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {

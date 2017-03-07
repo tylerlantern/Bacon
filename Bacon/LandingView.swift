@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LandingView.swift
 //  Bacon
 //
 //  Created by Nattapong Unaregul on 3/5/2560 BE.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LandingView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.setNavigationBarHidden(true, animated: true)
+    }
+    
+    
+    
 }
 
