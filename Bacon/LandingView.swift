@@ -21,7 +21,7 @@ class LandingView: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController!.setNavigationBarHidden(true, animated: true)
+        //self.navigationController!.setNavigationBarHidden(true, animated: true)
     }
     
     

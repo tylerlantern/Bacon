@@ -19,16 +19,16 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate{
     
     var window: UIWindow?
-    
+    var databaseRef : FIRDatabaseReference!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        FIRApp.configure()
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-//        Twitter.sharedInstance().start(withConsumerKey: "WvQOa8cOmL121GHN0WPt0OWQM", consumerSecret: "53IpMNt6KwrKKn6VaZAW4aecO4i3dsL3XRB52XaSjaMwnRZznz")
+        //        Twitter.sharedInstance().start(withConsumerKey: "WvQOa8cOmL121GHN0WPt0OWQM", consumerSecret: "53IpMNt6KwrKKn6VaZAW4aecO4i3dsL3XRB52XaSjaMwnRZznz")
         
-        FIRApp.configure()
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         //return true
     }
@@ -57,36 +57,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate{
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+    @available(iOS 9.0, *)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if (url.scheme?.hasPrefix("fb"))! {
+            return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
+            
+        } else {
+            return GIDSignIn.sharedInstance().handle(url,
+                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                     annotation: [:])
+        }
     }
     
-//    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
-//        -> Bool {
-//            return GIDSignIn.sharedInstance().handle(url,
-//                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-//                                                     annotation: [:])
+//    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+//        if (url.scheme?.hasPrefix("fb"))! {
+//            print("Go Facebookß")
+//            return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+//        } else {
+//            print("Go Google")
+//            return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
+//        }
 //    }
     
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        // ...
-        if error != nil {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        if let error = error {
             // ...
             return
         }
-        
         guard let authentication = user.authentication else { return }
         let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                           accessToken: authentication.accessToken)
-        // ...
-    }
-    
-    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
-                withError error: NSError!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
+        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+            // ...
+            if let error = error {
+                // ...
+                return
+            } else {
+                self.databaseRef = FIRDatabase.database().reference()
+                self.databaseRef.child("User_Profiles").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    let snapshot = snapshot.value as? NSDictionary
+                    if (snapshot == nil) {
+                        self.databaseRef.child("User_Profiles").child(user!.uid).child("name").setValue(user?.displayName)
+                        self.databaseRef.child("User_Profiles").child(user!.uid).child("email").setValue(user?.email)
+                        
+                    } else {
+                        //                        let mainstoryboard : UIStoryboard = UIStoryboard(name:"Main",bundle:nil)
+                        //                        self.window?.rootViewController?.performSegue(withIdentifier: "Iden_Goto_Landing", sender: nil)
+                    }
+                })
+            }
+        }
+        
+        func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+            
+        }
+        
+        
     }
     
 }
-

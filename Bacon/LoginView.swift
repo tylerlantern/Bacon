@@ -15,48 +15,50 @@ import TwitterCore
 import TwitterKit
 import GoogleSignIn
 
-class LoginView: UIViewController ,GIDSignInUIDelegate {
+class LoginView: UIViewController , GIDSignInUIDelegate {
     
+    var databaseRef : FIRDatabaseReference!
     
+    @IBOutlet weak var btnTwitter: UIButton!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-    @IBOutlet weak var btnGoogle: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        GIDSignIn.sharedInstance().uiDelegate = self
-//        GIDSignIn.sharedInstance().signIn()
+        btnTwitter.isHidden = true
         
-//        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
-//            if (session != nil) {
-//                let authToken = session?.authToken
-//                let authTokenSecret = session?.authTokenSecret
-//                
-//                let credential = FIRTwitterAuthProvider.credential(withToken: authToken!, secret: authTokenSecret!)
-//                FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-//                    if error != nil {
-//                        print("\(error)")
-//                        return
-//                    }
-//                }
-//            } else {
-//                // ...
-//            }
-//        })
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
         
-//        logInButton.center = self.view.center
-//        self.view.addSubview(logInButton)
+        //        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
+        //            if (session != nil) {
+        //                let authToken = session?.authToken
+        //                let authTokenSecret = session?.authTokenSecret
+        //
+        //                let credential = FIRTwitterAuthProvider.credential(withToken: authToken!, secret: authTokenSecret!)
+        //                FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+        //                    if error != nil {
+        //                        print("\(error)")
+        //                        return
+        //                    }
+        //                }
+        //            } else {
+        //                // ...
+        //            }
+        //        })
+        
+        //        logInButton.center = self.view.center
+        //        self.view.addSubview(logInButton)
         
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
                 var alert = UIAlertController()
                 alert = UIAlertController(title: "Fire Base Message", message: "\(user?.email)", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                    //self.performSegue(withIdentifier: "Iden_Goto_Landing", sender: self)
                 }))
                 self.present(alert, animated: true, completion: nil)
-                //self.performSegue(withIdentifier: self.loginToList, sender: nil)
-                
             }
         }
         
@@ -65,7 +67,6 @@ class LoginView: UIViewController ,GIDSignInUIDelegate {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController!.setNavigationBarHidden(true, animated: true)
     }
-    
     
     @IBAction func btnLogin_Click(_ sender: Any) {
         FIRAuth.auth()!.signIn(withEmail: txtEmail.text!,
@@ -125,6 +126,14 @@ class LoginView: UIViewController ,GIDSignInUIDelegate {
                     if let error = error {
                         print(error.localizedDescription)
                     } else {
+//                        self.databaseRef = FIRDatabase.database().reference()
+//                        self.databaseRef.child("User_Profiles").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+//                            let snapshot = snapshot.value as? NSDictionary
+//                            if (snapshot == nil) {
+//                                self.databaseRef.child("User_Profiles").child(user!.uid).child("name").setValue(user?.displayName)
+//                                self.databaseRef.child("User_Profiles").child(user!.uid).child("email").setValue(user?.email)
+//                                
+//                            }})
                         print("successfullyAuthenticated")
                     }
                 }
@@ -154,57 +163,24 @@ class LoginView: UIViewController ,GIDSignInUIDelegate {
         
     }
     
+    //    @IBAction func btnLogout_Click(_ sender: Any) {
+    //
+    //        let firebaseAuth = FIRAuth.auth()
+    //        do {
+    //            try firebaseAuth?.signOut()
+    //        } catch let signOutError as NSError {
+    //            print ("Error signing out: %@", signOutError)
+    //        }
+    //
+    //    }
     
-    @IBAction func btnGoogle_Click(_ sender: Any) {
-        //self.sign()
-        
-    }
-    
-    
-    
-    
-//    @IBAction func btnLogout_Click(_ sender: Any) {
-//        
-//        let firebaseAuth = FIRAuth.auth()
-//        do {
-//            try firebaseAuth?.signOut()
-//        } catch let signOutError as NSError {
-//            print ("Error signing out: %@", signOutError)
-//        }
-//        
-//    }
-    
-    //Google
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        // ...
-        if let error = error {
-            // ...
-            return
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "Iden_Goto_Landing" {
+            //let WorkQView:WorkQ = segue.destination as! WorkQ
+            //WorkQView.Authen_Class = self.AuthenData
         }
-        
-        guard let authentication = user.authentication else { return }
-        let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                          accessToken: authentication.accessToken)
-        // ...
-        
-        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-            // ...
-            if let error = error {
-                // ...
-                return
-            }
-            
-        }
-        
-        
     }
-    
-    
-    
-    
-    
-    
-    
     
     
     

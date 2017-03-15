@@ -26,7 +26,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="fHn-Vp-zZH"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bos-q1-8W9">
                                 <rect key="frame" x="86" y="215" width="203" height="30"/>
@@ -34,6 +37,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Sgt-uL-Kjw"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gia-vn-f36">
                                 <rect key="frame" x="164" y="291" width="46" height="30"/>
@@ -52,7 +58,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sj8-4W-6dG">
-                                <rect key="frame" x="161" y="397" width="52" height="30"/>
+                                <rect key="frame" x="16" y="599" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Twitter"/>
                                 <connections>
@@ -67,22 +73,20 @@
                                     <action selector="btnFacebook_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YyN-C6-eES"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHY-QV-UbY">
-                                <rect key="frame" x="146" y="462" width="82" height="30"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ay1-r6-1v6" customClass="GIDSignInButton">
+                                <rect key="frame" x="76" y="472" width="222" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Google Plus"/>
-                                <connections>
-                                    <action selector="btnGoogle_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cRW-3G-yap"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="FDP-dv-nlD"/>
                     <connections>
+                        <outlet property="btnTwitter" destination="Sj8-4W-6dG" id="uja-Rp-Cna"/>
                         <outlet property="txtEmail" destination="Ugi-4o-RoX" id="Qod-a0-p7M"/>
                         <outlet property="txtPassword" destination="bos-q1-8W9" id="Zp3-Dy-Yov"/>
-                        <segue destination="xry-hr-FTL" kind="show" action="showDetailViewController:sender:" id="1UN-ul-Cca"/>
+                        <segue destination="xry-hr-FTL" kind="show" identifier="Iden_Goto_Landing" action="showDetailViewController:sender:" id="1UN-ul-Cca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
