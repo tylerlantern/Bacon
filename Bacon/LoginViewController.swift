@@ -53,16 +53,16 @@ class LoginViewController: UIViewController , GIDSignInUIDelegate {
         //        logInButton.center = self.view.center
         //        self.view.addSubview(logInButton)
         
-        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
-            if user != nil {
-                var alert = UIAlertController()
-                alert = UIAlertController(title: "Fire Base Message", message: "\(user?.email)", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                    //self.performSegue(withIdentifier: "Iden_Goto_Landing", sender: self)
-                }))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
+//        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+//            if user != nil {
+//                var alert = UIAlertController()
+//                alert = UIAlertController(title: "Fire Base Message", message: "\(user?.email)", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+//                    self.performSegue(withIdentifier: "segue_LandingView", sender: self)
+//                }))
+//                self.present(alert, animated: true, completion: nil)
+//            }
+//        }
         
     }
     
@@ -180,8 +180,8 @@ class LoginViewController: UIViewController , GIDSignInUIDelegate {
     //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if segue.identifier == "Iden_Goto_Landing" {
+{
+        if segue.identifier == "segue_LandingView" {
             //let WorkQView:WorkQ = segue.destination as! WorkQ
             //WorkQView.Authen_Class = self.AuthenData
         }

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="l3X-nu-WOR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CLP-GY-Ppm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,9 +42,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Sgt-uL-Kjw"/>
                                 </connections>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V5h-nm-3jV">
-                                <rect key="frame" x="30" y="306" width="315" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dod-D0-5Sb">
+                                <rect key="frame" x="30" y="334" width="315" height="205"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Fs-i5-pQg" customClass="SoicialButton" customModule="Bacon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="55"/>
@@ -56,77 +56,90 @@
                                             <action selector="btnSignIn_Click:" destination="dkx-z0-nzr" eventType="touchUpInside" id="a1L-5O-EvP"/>
                                         </connections>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2F-mw-66o" customClass="SoicialButton" customModule="Bacon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="75" width="315" height="55"/>
+                                        <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="facebookIcon"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Facebook"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnFacebook_Click:" destination="dkx-z0-nzr" eventType="touchUpInside" id="dYO-Qf-4wV"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTo-gq-4T4" customClass="SoicialButton" customModule="Bacon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="150" width="315" height="55"/>
+                                        <color key="backgroundColor" red="0.8666666666666667" green="0.29411764705882354" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="googlePlusIcon"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Google"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnGoogleLogin_Click:" destination="dkx-z0-nzr" eventType="touchUpInside" id="qUe-hM-rZY"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2F-mw-66o" customClass="SoicialButton" customModule="Bacon" customModuleProvider="target">
-                                <rect key="frame" x="30" y="381" width="315" height="55"/>
-                                <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="facebookIcon"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Facebook"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="btnFacebook_Click:" destination="dkx-z0-nzr" eventType="touchUpInside" id="dYO-Qf-4wV"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTo-gq-4T4" customClass="SoicialButton" customModule="Bacon" customModuleProvider="target">
-                                <rect key="frame" x="30" y="456" width="315" height="55"/>
-                                <color key="backgroundColor" red="0.8666666666666667" green="0.29411764705882354" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="googlePlusIcon"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Google"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="btnGoogleLogin_Click:" destination="dkx-z0-nzr" eventType="touchUpInside" id="qUe-hM-rZY"/>
-                                </connections>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="z2F-mw-66o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="93A-Be-Zxh"/>
-                            <constraint firstItem="8Fs-i5-pQg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cv9-dC-vHP"/>
-                            <constraint firstItem="z2F-mw-66o" firstAttribute="top" secondItem="8Fs-i5-pQg" secondAttribute="bottom" constant="20" id="N07-kv-YfD"/>
-                            <constraint firstItem="KTo-gq-4T4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nN2-jb-he7"/>
-                            <constraint firstItem="KTo-gq-4T4" firstAttribute="top" secondItem="z2F-mw-66o" secondAttribute="bottom" constant="20" id="xdR-Th-NTv"/>
-                            <constraint firstItem="8Fs-i5-pQg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zgu-er-Jkv"/>
+                            <constraint firstItem="dod-D0-5Sb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VQY-tY-Fgc"/>
+                            <constraint firstItem="dod-D0-5Sb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eDM-3z-7vf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FDP-dv-nlD"/>
                     <connections>
                         <outlet property="txtEmail" destination="Ugi-4o-RoX" id="Qod-a0-p7M"/>
                         <outlet property="txtPassword" destination="bos-q1-8W9" id="Zp3-Dy-Yov"/>
-                        <segue destination="xry-hr-FTL" kind="show" identifier="Iden_Goto_Landing" action="showDetailViewController:sender:" id="1UN-ul-Cca"/>
+                        <segue destination="CLP-GY-Ppm" kind="show" identifier="segue_LandingView" id="QJe-fA-8tj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="61.600000000000001" y="26.53673163418291"/>
         </scene>
-        <!--Landing View-->
-        <scene sceneID="MWs-Fa-kFZ">
+        <!--Item-->
+        <scene sceneID="iTw-bN-Gey">
             <objects>
-                <viewController id="xry-hr-FTL" customClass="LandingView" customModule="Bacon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CLP-GY-Ppm" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bin-qE-Yvp"/>
-                        <viewControllerLayoutGuide type="bottom" id="T3P-nE-5wg"/>
+                        <viewControllerLayoutGuide type="top" id="ucn-Lf-Qsu"/>
+                        <viewControllerLayoutGuide type="bottom" id="ggB-8s-hHc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hki-lR-uRH">
+                    <view key="view" contentMode="scaleToFill" id="XKv-pa-WbT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ue3-h2-xp7">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="Jpp-68-0lr"/>
+                                    <tabBarItem systemItem="more" id="F7M-lb-dVr"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ue3-h2-xp7" firstAttribute="leading" secondItem="XKv-pa-WbT" secondAttribute="leading" id="9f5-bK-0Kz"/>
+                            <constraint firstAttribute="trailing" secondItem="Ue3-h2-xp7" secondAttribute="trailing" id="JEe-Iw-psY"/>
+                            <constraint firstItem="ggB-8s-hHc" firstAttribute="top" secondItem="Ue3-h2-xp7" secondAttribute="bottom" id="fYK-PD-3dO"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Ji8-TE-X8e"/>
+                    <navigationItem key="navigationItem" id="itX-7y-1AF"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gy2-CI-Kwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gmt-b2-bGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="27"/>
+            <point key="canvasLocation" x="1077.5999999999999" y="26.53673163418291"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wUw-bN-1ee">
             <objects>
                 <navigationController id="l3X-nu-WOR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lXM-Qg-g23">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lXM-Qg-g23">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
