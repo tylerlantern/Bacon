@@ -1,5 +1,5 @@
 //
-//  LandingView.swift
+//  LandingViewController.swift
 //  Bacon
 //
 //  Created by Nattapong Unaregul on 3/5/2560 BE.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class LandingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

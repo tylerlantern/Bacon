@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  LoginViewController.swift
 //  Bacon
 //
 //  Created by Pantheb Tachajarrupan on 2/3/2560 BE.
