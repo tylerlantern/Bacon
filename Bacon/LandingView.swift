@@ -8,7 +8,8 @@
 
 import UIKit
 
-class LandingView: UIViewController {
+
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,7 @@ class LandingView: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         //self.navigationController!.setNavigationBarHidden(true, animated: true)
     }
-    
-    
-    
 }
+
+
 

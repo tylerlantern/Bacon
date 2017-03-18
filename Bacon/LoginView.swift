@@ -15,11 +15,13 @@ import TwitterCore
 import TwitterKit
 import GoogleSignIn
 
-class LoginView: UIViewController , GIDSignInUIDelegate {
+class LoginViewController: UIViewController , GIDSignInUIDelegate {
     
     var databaseRef : FIRDatabaseReference!
     
     @IBOutlet weak var btnTwitter: UIButton!
+
+
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     
@@ -142,6 +144,7 @@ class LoginView: UIViewController , GIDSignInUIDelegate {
     }
     
     
+  
     @IBAction func btnTwetter_Click(_ sender: Any) {
         
         Twitter.sharedInstance().logIn(completion: { session, error in
@@ -162,7 +165,8 @@ class LoginView: UIViewController , GIDSignInUIDelegate {
         })
         
     }
-    
+
+ 
     //    @IBAction func btnLogout_Click(_ sender: Any) {
     //
     //        let firebaseAuth = FIRAuth.auth()
@@ -190,7 +194,7 @@ class LoginView: UIViewController , GIDSignInUIDelegate {
     
 }
 
-extension LoginView: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == txtEmail {

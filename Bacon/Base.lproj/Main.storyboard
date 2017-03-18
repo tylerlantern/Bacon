@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginView" customModule="Bacon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Bacon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -41,49 +41,38 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Sgt-uL-Kjw"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gia-vn-f36">
-                                <rect key="frame" x="164" y="291" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2F-mw-66o" customClass="SoicialButton" customModule="Bacon" customModuleProvider="target">
+                                <rect key="frame" x="30" y="306" width="315" height="55"/>
+                                <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="facebookIcon"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Facebook"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="btnLogin_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w82-ra-xj5"/>
+                                    <action selector="btnFacebook_Click:" destination="dkx-z0-nzr" eventType="touchUpInside" id="dYO-Qf-4wV"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zjg-1R-hIg">
-                                <rect key="frame" x="86" y="253" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign In"/>
-                                <connections>
-                                    <action selector="btnSignIn_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BLQ-kJ-HGY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sj8-4W-6dG">
-                                <rect key="frame" x="16" y="599" width="52" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Twitter"/>
-                                <connections>
-                                    <action selector="btnTwetter_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xLi-XJ-mVk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vv-cN-atH">
-                                <rect key="frame" x="154" y="345" width="67" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Facebook"/>
-                                <connections>
-                                    <action selector="btnFacebook_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YyN-C6-eES"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ay1-r6-1v6" customClass="GIDSignInButton">
-                                <rect key="frame" x="76" y="472" width="222" height="99"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNx-RA-AEa" customClass="SoicialButton" customModule="Bacon" customModuleProvider="target">
+                                <rect key="frame" x="29.5" y="421" width="315" height="55"/>
+                                <color key="backgroundColor" red="0.33333333333333331" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="twitterIcon"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Twitter"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WNx-RA-AEa" firstAttribute="top" secondItem="z2F-mw-66o" secondAttribute="bottom" constant="60" id="EqQ-BU-3gp"/>
+                            <constraint firstItem="z2F-mw-66o" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XCZ-Cv-2uS"/>
+                            <constraint firstItem="z2F-mw-66o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bIu-AZ-jDn"/>
+                            <constraint firstItem="WNx-RA-AEa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="x0Y-YT-hUc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FDP-dv-nlD"/>
                     <connections>
-                        <outlet property="btnTwitter" destination="Sj8-4W-6dG" id="uja-Rp-Cna"/>
                         <outlet property="txtEmail" destination="Ugi-4o-RoX" id="Qod-a0-p7M"/>
                         <outlet property="txtPassword" destination="bos-q1-8W9" id="Zp3-Dy-Yov"/>
                         <segue destination="xry-hr-FTL" kind="show" identifier="Iden_Goto_Landing" action="showDetailViewController:sender:" id="1UN-ul-Cca"/>
@@ -115,7 +104,7 @@
         <scene sceneID="wUw-bN-1ee">
             <objects>
                 <navigationController id="l3X-nu-WOR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lXM-Qg-g23">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lXM-Qg-g23">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -128,4 +117,8 @@
             <point key="canvasLocation" x="-1031" y="27"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="facebookIcon" width="13" height="23"/>
+        <image name="twitterIcon" width="23" height="18"/>
+    </resources>
 </document>
