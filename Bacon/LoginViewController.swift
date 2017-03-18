@@ -20,18 +20,18 @@ class LoginViewController: UIViewController , GIDSignInUIDelegate {
     var databaseRef : FIRDatabaseReference!
     
     @IBOutlet weak var btnTwitter: UIButton!
-
-
+    
+    
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        btnTwitter.isHidden = true
+        //        btnTwitter.isHidden = true
         
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+        
         
         //        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
         //            if (session != nil) {
@@ -79,40 +79,40 @@ class LoginViewController: UIViewController , GIDSignInUIDelegate {
         let alert = UIAlertController(title: "Register",
                                       message: "Register",
                                       preferredStyle: .alert)
+
+                let saveAction = UIAlertAction(title: "Save",
+                                               style: .default) { action in
+                                                let emailField = alert.textFields![0]
+                                                let passwordField = alert.textFields![1]
         
-        let saveAction = UIAlertAction(title: "Save",
-                                       style: .default) { action in
-                                        let emailField = alert.textFields![0]
-                                        let passwordField = alert.textFields![1]
-                                        
-                                        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
-                                                                   password: passwordField.text!) { user, error in
-                                                                    if error == nil {
-                                                                        FIRAuth.auth()!.signIn(withEmail: self.txtEmail.text!,
-                                                                                               password: self.txtPassword.text!)
-                                                                    }
-                                        }
-        }
+                                                FIRAuth.auth()!.createUser(withEmail: emailField.text!,
+                                                                           password: passwordField.text!) { user, error in
+                                                                            if error == nil {
+                                                                                FIRAuth.auth()!.signIn(withEmail: self.txtEmail.text!,
+                                                                                                       password: self.txtPassword.text!)
+                                                                            }
+                                                }
+                }
         
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .default)
+                let cancelAction = UIAlertAction(title: "Cancel",
+                                                 style: .default)
         
-        alert.addTextField { textEmail in
-            textEmail.placeholder = "Enter your email"
-        }
+                alert.addTextField { textEmail in
+                    textEmail.placeholder = "Enter your email"
+                }
         
-        alert.addTextField { textPassword in
-            textPassword.isSecureTextEntry = true
-            textPassword.placeholder = "Enter your password"
-        }
+                alert.addTextField { textPassword in
+                    textPassword.isSecureTextEntry = true
+                    textPassword.placeholder = "Enter your password"
+                }
         
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
+                alert.addAction(saveAction)
+                alert.addAction(cancelAction)
         
-        present(alert, animated: true, completion: nil)
+                present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func btnFacebook_Click(_ sender: Any) {
+    @IBAction func btnFacebookLogin_Click(_ sender: Any) {
         
         let facebookLogin : FBSDKLoginManager = FBSDKLoginManager()
         print("Logging In")
@@ -128,24 +128,25 @@ class LoginViewController: UIViewController , GIDSignInUIDelegate {
                     if let error = error {
                         print(error.localizedDescription)
                     } else {
-//                        self.databaseRef = FIRDatabase.database().reference()
-//                        self.databaseRef.child("User_Profiles").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-//                            let snapshot = snapshot.value as? NSDictionary
-//                            if (snapshot == nil) {
-//                                self.databaseRef.child("User_Profiles").child(user!.uid).child("name").setValue(user?.displayName)
-//                                self.databaseRef.child("User_Profiles").child(user!.uid).child("email").setValue(user?.email)
-//                                
-//                            }})
+                        //                        self.databaseRef = FIRDatabase.database().reference()
+                        //                        self.databaseRef.child("User_Profiles").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                        //                            let snapshot = snapshot.value as? NSDictionary
+                        //                            if (snapshot == nil) {
+                        //                                self.databaseRef.child("User_Profiles").child(user!.uid).child("name").setValue(user?.displayName)
+                        //                                self.databaseRef.child("User_Profiles").child(user!.uid).child("email").setValue(user?.email)
+                        //
+                        //                            }})
                         print("successfullyAuthenticated")
                     }
                 }
             }
         })
     }
-    
-    
-  
-    @IBAction func btnTwetter_Click(_ sender: Any) {
+
+    @IBAction func btnGoogleLogin_Click(_ sender: Any) {
+                    GIDSignIn.sharedInstance().signIn()
+    }
+    @IBAction func btnTwetterLogin_Click(_ sender: Any) {
         
         Twitter.sharedInstance().logIn(completion: { session, error in
             if (session != nil) {
@@ -165,8 +166,8 @@ class LoginViewController: UIViewController , GIDSignInUIDelegate {
         })
         
     }
-
- 
+    
+    
     //    @IBAction func btnLogout_Click(_ sender: Any) {
     //
     //        let firebaseAuth = FIRAuth.auth()

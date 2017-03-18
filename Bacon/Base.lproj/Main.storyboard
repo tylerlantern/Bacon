@@ -42,36 +42,55 @@
                                 </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V5h-nm-3jV">
-                                <rect key="frame" x="30" y="306" width="315" height="56"/>
+                                <rect key="frame" x="30" y="306" width="315" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2F-mw-66o" customClass="SoicialButton" customModule="Bacon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="55.5"/>
-                                        <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Fs-i5-pQg" customClass="SoicialButton" customModule="Bacon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="55"/>
+                                        <color key="backgroundColor" red="0.16078431372549018" green="0.59607843137254901" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="facebookIcon"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Facebook"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Login"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="btnFacebook_Click:" destination="dkx-z0-nzr" eventType="touchUpInside" id="dYO-Qf-4wV"/>
+                                            <action selector="btnSignIn_Click:" destination="dkx-z0-nzr" eventType="touchUpInside" id="a1L-5O-EvP"/>
                                         </connections>
                                     </view>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WNx-RA-AEa" customClass="SoicialButton" customModule="Bacon" customModuleProvider="target">
-                                <rect key="frame" x="30" y="435" width="315" height="55"/>
-                                <color key="backgroundColor" red="0.33333333333333331" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2F-mw-66o" customClass="SoicialButton" customModule="Bacon" customModuleProvider="target">
+                                <rect key="frame" x="30" y="381" width="315" height="55"/>
+                                <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="twitterIcon"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Twitter"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="facebookIcon"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Facebook"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnFacebook_Click:" destination="dkx-z0-nzr" eventType="touchUpInside" id="dYO-Qf-4wV"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTo-gq-4T4" customClass="SoicialButton" customModule="Bacon" customModuleProvider="target">
+                                <rect key="frame" x="30" y="456" width="315" height="55"/>
+                                <color key="backgroundColor" red="0.8666666666666667" green="0.29411764705882354" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="googlePlusIcon"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Google"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnGoogleLogin_Click:" destination="dkx-z0-nzr" eventType="touchUpInside" id="qUe-hM-rZY"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WNx-RA-AEa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="x0Y-YT-hUc"/>
+                            <constraint firstItem="z2F-mw-66o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="93A-Be-Zxh"/>
+                            <constraint firstItem="8Fs-i5-pQg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cv9-dC-vHP"/>
+                            <constraint firstItem="z2F-mw-66o" firstAttribute="top" secondItem="8Fs-i5-pQg" secondAttribute="bottom" constant="20" id="N07-kv-YfD"/>
+                            <constraint firstItem="KTo-gq-4T4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nN2-jb-he7"/>
+                            <constraint firstItem="KTo-gq-4T4" firstAttribute="top" secondItem="z2F-mw-66o" secondAttribute="bottom" constant="20" id="xdR-Th-NTv"/>
+                            <constraint firstItem="8Fs-i5-pQg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zgu-er-Jkv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FDP-dv-nlD"/>
@@ -107,7 +126,7 @@
         <scene sceneID="wUw-bN-1ee">
             <objects>
                 <navigationController id="l3X-nu-WOR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lXM-Qg-g23">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lXM-Qg-g23">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -122,6 +141,6 @@
     </scenes>
     <resources>
         <image name="facebookIcon" width="13" height="23"/>
-        <image name="twitterIcon" width="23" height="18"/>
+        <image name="googlePlusIcon" width="23" height="21"/>
     </resources>
 </document>
