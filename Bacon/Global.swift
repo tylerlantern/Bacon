@@ -7,3 +7,12 @@
 //
 
 import Foundation
+class GlobalParams : NSObject {
+    
+    let currentcyIdentifier = "th_TH"
+    let http_api = "http://api.trade-jewelry.com/api"
+    let http_apiForRender = "http://api.trade-jewelry.com"
+    let fontfamilyname = "HelveticaNeue"
+    
+    static let sharedInstance = GlobalParams()
+}

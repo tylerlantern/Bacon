@@ -15,6 +15,10 @@
 		84EEF21F1E6C0F61001CA740 /* FireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEF21E1E6C0F61001CA740 /* FireBase.swift */; };
 		A15CDD02EBF979A7185B569D /* Pods_BaconUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13A97B19A4ECC82C399BBD5D /* Pods_BaconUITests.framework */; };
 		BE1232851E7A279900828B70 /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1232841E7A279900828B70 /* SocialButton.swift */; };
+		BE1386301E7D2A020073A2AC /* BaconCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE13862F1E7D2A020073A2AC /* BaconCollectionViewLayout.swift */; };
+		BE1386331E7D2AB20073A2AC /* Miscellaneous.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1386321E7D2AB20073A2AC /* Miscellaneous.swift */; };
+		BE1386351E7D4E5F0073A2AC /* BaconCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1386341E7D4E5F0073A2AC /* BaconCardCollectionViewCell.swift */; };
+		BE1386371E7D4FFE0073A2AC /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1386361E7D4FFE0073A2AC /* Global.swift */; };
 		BE2628AD1E6BFF4400E5CA25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2628AC1E6BFF4400E5CA25 /* AppDelegate.swift */; };
 		BE2628AF1E6BFF4400E5CA25 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2628AE1E6BFF4400E5CA25 /* LandingViewController.swift */; };
 		BE2628B41E6BFF4400E5CA25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE2628B31E6BFF4400E5CA25 /* Assets.xcassets */; };
@@ -54,6 +58,10 @@
 		84EEF21C1E6C0F5A001CA740 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84EEF21E1E6C0F61001CA740 /* FireBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireBase.swift; sourceTree = "<group>"; };
 		BE1232841E7A279900828B70 /* SocialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
+		BE13862F1E7D2A020073A2AC /* BaconCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaconCollectionViewLayout.swift; sourceTree = "<group>"; };
+		BE1386321E7D2AB20073A2AC /* Miscellaneous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Miscellaneous.swift; sourceTree = "<group>"; };
+		BE1386341E7D4E5F0073A2AC /* BaconCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaconCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		BE1386361E7D4FFE0073A2AC /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		BE2628A91E6BFF4400E5CA25 /* Bacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2628AC1E6BFF4400E5CA25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE2628AE1E6BFF4400E5CA25 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -146,8 +154,19 @@
 			isa = PBXGroup;
 			children = (
 				BE1232841E7A279900828B70 /* SocialButton.swift */,
+				BE13862F1E7D2A020073A2AC /* BaconCollectionViewLayout.swift */,
+				BE1386341E7D4E5F0073A2AC /* BaconCardCollectionViewCell.swift */,
 			);
 			name = Controls;
+			sourceTree = "<group>";
+		};
+		BE1386311E7D2A690073A2AC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BE1386321E7D2AB20073A2AC /* Miscellaneous.swift */,
+				BE1386361E7D4FFE0073A2AC /* Global.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		BE2628A01E6BFF4400E5CA25 = {
@@ -175,6 +194,7 @@
 		BE2628AB1E6BFF4400E5CA25 /* Bacon */ = {
 			isa = PBXGroup;
 			children = (
+				BE1386311E7D2A690073A2AC /* Utilities */,
 				BE1232831E7A272E00828B70 /* Controls */,
 				8427189D1E7437130083996B /* Supporting Files */,
 				84F01D8B1E6EE00500739AA1 /* Class */,
@@ -497,11 +517,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1386351E7D4E5F0073A2AC /* BaconCardCollectionViewCell.swift in Sources */,
 				84EEF21F1E6C0F61001CA740 /* FireBase.swift in Sources */,
+				BE1386331E7D2AB20073A2AC /* Miscellaneous.swift in Sources */,
 				84EEF21D1E6C0F5A001CA740 /* LoginViewController.swift in Sources */,
 				BE1232851E7A279900828B70 /* SocialButton.swift in Sources */,
 				BE2628AF1E6BFF4400E5CA25 /* LandingViewController.swift in Sources */,
+				BE1386301E7D2A020073A2AC /* BaconCollectionViewLayout.swift in Sources */,
 				BE2628AD1E6BFF4400E5CA25 /* AppDelegate.swift in Sources */,
+				BE1386371E7D4FFE0073A2AC /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,7 +21,6 @@ class LoginViewController: UIViewController , GIDSignInUIDelegate {
     
     @IBOutlet weak var btnTwitter: UIButton!
     
-    
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     
@@ -53,16 +52,16 @@ class LoginViewController: UIViewController , GIDSignInUIDelegate {
         //        logInButton.center = self.view.center
         //        self.view.addSubview(logInButton)
         
-//        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
-//            if user != nil {
-//                var alert = UIAlertController()
-//                alert = UIAlertController(title: "Fire Base Message", message: "\(user?.email)", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-//                    self.performSegue(withIdentifier: "segue_LandingView", sender: self)
-//                }))
-//                self.present(alert, animated: true, completion: nil)
-//            }
-//        }
+        //        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+        //            if user != nil {
+        //                var alert = UIAlertController()
+        //                alert = UIAlertController(title: "Fire Base Message", message: "\(user?.email)", preferredStyle: .alert)
+        //                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+        //                    self.performSegue(withIdentifier: "segue_LandingView", sender: self)
+        //                }))
+        //                self.present(alert, animated: true, completion: nil)
+        //            }
+        //        }
         
     }
     
@@ -79,37 +78,37 @@ class LoginViewController: UIViewController , GIDSignInUIDelegate {
         let alert = UIAlertController(title: "Register",
                                       message: "Register",
                                       preferredStyle: .alert)
-
-                let saveAction = UIAlertAction(title: "Save",
-                                               style: .default) { action in
-                                                let emailField = alert.textFields![0]
-                                                let passwordField = alert.textFields![1]
         
-                                                FIRAuth.auth()!.createUser(withEmail: emailField.text!,
-                                                                           password: passwordField.text!) { user, error in
-                                                                            if error == nil {
-                                                                                FIRAuth.auth()!.signIn(withEmail: self.txtEmail.text!,
-                                                                                                       password: self.txtPassword.text!)
-                                                                            }
-                                                }
-                }
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .default) { action in
+                                        let emailField = alert.textFields![0]
+                                        let passwordField = alert.textFields![1]
+                                        
+                                        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
+                                                                   password: passwordField.text!) { user, error in
+                                                                    if error == nil {
+                                                                        FIRAuth.auth()!.signIn(withEmail: self.txtEmail.text!,
+                                                                                               password: self.txtPassword.text!)
+                                                                    }
+                                        }
+        }
         
-                let cancelAction = UIAlertAction(title: "Cancel",
-                                                 style: .default)
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .default)
         
-                alert.addTextField { textEmail in
-                    textEmail.placeholder = "Enter your email"
-                }
+        alert.addTextField { textEmail in
+            textEmail.placeholder = "Enter your email"
+        }
         
-                alert.addTextField { textPassword in
-                    textPassword.isSecureTextEntry = true
-                    textPassword.placeholder = "Enter your password"
-                }
+        alert.addTextField { textPassword in
+            textPassword.isSecureTextEntry = true
+            textPassword.placeholder = "Enter your password"
+        }
         
-                alert.addAction(saveAction)
-                alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
         
-                present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func btnFacebookLogin_Click(_ sender: Any) {
@@ -142,9 +141,9 @@ class LoginViewController: UIViewController , GIDSignInUIDelegate {
             }
         })
     }
-
+    
     @IBAction func btnGoogleLogin_Click(_ sender: Any) {
-                    GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().signIn()
     }
     @IBAction func btnTwetterLogin_Click(_ sender: Any) {
         
@@ -166,33 +165,13 @@ class LoginViewController: UIViewController , GIDSignInUIDelegate {
         })
         
     }
-    
-    
-    //    @IBAction func btnLogout_Click(_ sender: Any) {
-    //
-    //        let firebaseAuth = FIRAuth.auth()
-    //        do {
-    //            try firebaseAuth?.signOut()
-    //        } catch let signOutError as NSError {
-    //            print ("Error signing out: %@", signOutError)
-    //        }
-    //
-    //    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-{
+    {
         if segue.identifier == "segue_LandingView" {
             //let WorkQView:WorkQ = segue.destination as! WorkQ
             //WorkQView.Authen_Class = self.AuthenData
         }
     }
-    
-    
-    
-    
-    
-    
-    
 }
 
 extension LoginViewController: UITextFieldDelegate {

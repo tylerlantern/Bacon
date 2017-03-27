@@ -8,21 +8,37 @@
 
 import UIKit
 
+class LandingViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
 
-class LandingViewController: UIViewController {
 
+    var oneColumnLayout : BaconCollectionViewLayout = BaconCollectionViewLayout(withLayout: LayoutBaconCollectionView.OneColumn)
+    var twoColumnLayout : BaconCollectionViewLayout = BaconCollectionViewLayout(withLayout: LayoutBaconCollectionView.TwoColumn)
+    var recordsLayout : BaconCollectionViewLayout = BaconCollectionViewLayout(withLayout: LayoutBaconCollectionView.RowRecords)
+    let reusedCollectionViewCellIdentiier = "baconCollectionViewIdentifier"
+    @IBOutlet weak var collectionView: UICollectionView!
+    func toggleLayout(){
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.collectionView.delegate = self
+        self.collectionView.collectionViewLayout = recordsLayout
+        self.collectionView.register(BaconCollectionViewLayout.self, forCellWithReuseIdentifier: reusedCollectionViewCellIdentiier)
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        //self.navigationController!.setNavigationBarHidden(true, animated: true)
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cardCell : BaconCardCollectionViewCell?
+            = collectionView.dequeueReusableCell(withReuseIdentifier: reusedCollectionViewCellIdentiier, for: indexPath) as? BaconCardCollectionViewCell
+        if cardCell == nil {
+            cardCell = BaconCardCollectionViewCell(frame: CGRect.zero)
+        }
+        return cardCell!
     }
 }
 
