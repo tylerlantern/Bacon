@@ -157,7 +157,7 @@
 				BE13862F1E7D2A020073A2AC /* BaconCollectionViewLayout.swift */,
 				BE1386341E7D4E5F0073A2AC /* BaconCardCollectionViewCell.swift */,
 			);
-			name = Controls;
+			path = Controls;
 			sourceTree = "<group>";
 		};
 		BE1386311E7D2A690073A2AC /* Utilities */ = {
@@ -166,7 +166,7 @@
 				BE1386321E7D2AB20073A2AC /* Miscellaneous.swift */,
 				BE1386361E7D4FFE0073A2AC /* Global.swift */,
 			);
-			name = Utilities;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		BE2628A01E6BFF4400E5CA25 = {
